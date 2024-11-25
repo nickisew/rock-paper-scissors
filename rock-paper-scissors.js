@@ -1,39 +1,71 @@
-var userInput = function getUserChoice(userInput) {
-  if (userInput == "rock" || userInput == "paper" || userInput == "scissors") {
+var getUserChoice = function (userInput) {
+  userInput =userInput.toLowerCase();
+
+  if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
     return userInput;
   } else {
-    return console.log("Error");
+    console.log("Error");
   }
 };
 
-userInput = userInput.toLowerCase();
+// Test getUserChoice
+// var choice =getUserChoice('Rock');
+// console.log(choice);
 
-var getComputerChoice = function getComputerChoice() {
-  return (randomNumber = Math.floor(Math.random() * 3));
+
+var getComputerChoice = function () {
+  var randomNumber = Math.floor(Math.random() * 3)
+
+  if (randomNumber === 0) {
+    return 'rock';
+  } else if (randomNumber === 1) {
+    return 'paper';
+  } else if (randomNumber === 2) {
+  return 'scissors'
+  }
 };
 
-if ((randomNumber = 0)) {
-  computerChoice("rock");
-} else if ((randomNumber = 1)) {
-  computerChoice("paper");
-} else if ((randomNumber = 2)) {
-  computerChoice("scissors");
+var determineWinner = function (userchoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    return "You tied." }
+  if (userChoice === "rock" && computerChoice === "paper") {
+    return "You lost." }
+  if (userChoice === "rock" && computerChoice === "scissors") {
+    return("You won."); }
+  if (userChoice === "paper" && computerChoice === "rock") {
+    return("You won.");
+  } if (userChoice === "paper" && computerChoice === "scissors") {
+    return("You lost.");
+  } if (userChoice === "scissors" && computerChoice === "rock") {
+    return("You lost.");
+  } if (userChoice === "scissors" && computerChoice === "paper") {
+    return("You won.");
+  }
+};
+
+// Test determineWinner
+
+// var userChoice = getUserChoice('paper');
+// var computerChoice = getComputerChoice();
+
+// console.log(userChoice)
+// console.log(computerChoice)
+
+// var winnerText = determineWinner(userChoice, computerChoice);
+// console.log(winnerText)
+
+var playGame = function (userInput) {
+  var userChoice = getUserChoice(userInput);
+  var computerChoice = getComputerChoice();
+
+  console.log('User Choice', userChoice);
+    console.log('Computer Choice', computerChoice);
+
+    var winnerText =determineWinner(userChoice, computerChoice);
+
+    console.log(winnerText);
 }
 
-var determineWinner = function determineWinner(userchoice, computerChoice) {
-  if (userInput == computerChoice) {
-    console.log("You tied.");
-  } else if (userChoice == "rock" && computerChoice == "paper") {
-    console.log("You lost.");
-  } else if (userChoice == "rock" && computerChoice == "scissors") {
-    console.log("You won.");
-  } else if (userChoice == "paper" && computerChoice == "rock") {
-    console.log("You won.");
-  } else if (userChoice == "paper" && computerChoice == "rock") {
-    console.log("You won.");
-  } else if (userChoice == "scissors" && computerChoice == "rock") {
-    console.log("You lost.");
-  } else if (userChoice == "scissors" && computerChoice == "paper") {
-    console.log("You won.");
-  }
-};
+var userInput = prompt();
+
+console.log(userInput);
